@@ -9,16 +9,17 @@ import jakarta.persistence.*;
 public class Estadio {
 
     @Id
-    @Column(name="id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Integer id;
 
-    @Column(name="data_fundacao", nullable = false)
+    @Column(name="data_fundacao")
     private String dataFundacao;
 
-    @Column(name="nome", nullable = false)
+    @Column(name="nome")
     private String nome;
 
-    @Column(name="capacidade_pessoas", nullable = false)
+    @Column(name="capacidade_pessoas")
     private Integer capacidadePessoas;
 
     @ManyToOne

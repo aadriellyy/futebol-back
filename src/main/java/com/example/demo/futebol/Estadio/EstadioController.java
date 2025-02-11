@@ -34,7 +34,7 @@ public class EstadioController {
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
         public ResponseEntity<?> save(@RequestBody EstadioRequest request){
-        var idLocalizacao = request.getIdLocalizacao();
+        Integer idLocalizacao = request.getIdLocalizacao();
         LOGGER.info("Iniciando criação de um novo Estadio para Localizacao com ID: {}", idLocalizacao);
         if (idLocalizacao == null){
             return ResponseEntity.badRequest().body("idLocalizacao está inválido");
@@ -84,7 +84,7 @@ public class EstadioController {
            
     @PutMapping(value="/{id}", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces= {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody EstadioRequest request) {
-        var idLocalizacao = request.getIdLocalizacao();
+        Integer idLocalizacao = request.getIdLocalizacao();
         LOGGER.info("Iniciando atualização de Estadio pelo id: {}",id);
 
         Optional<Localizacao> possivelLocalizacao = this.localizacaoService.findById(idLocalizacao);

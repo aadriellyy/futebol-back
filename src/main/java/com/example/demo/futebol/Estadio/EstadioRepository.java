@@ -24,12 +24,14 @@ public class EstadioRepository implements EstadioDao {
 
     @Override
     public void save(Estadio estadio) {
-        try{
+        try {
             em.persist(estadio);
-        }catch(PersistenceException e){
-            LOGGER.error("Erro de persistência: não foi possível criar estádio", e.getMessage());
+        } catch (PersistenceException e) {
+            LOGGER.error("Erro de persistência: não foi possível criar estádio", e);
+            throw e;  // Relança a exceção para que o Spring possa tratá-la corretamente
         }
     }
+
 
     @Override
     public void delete(Estadio estadio) {

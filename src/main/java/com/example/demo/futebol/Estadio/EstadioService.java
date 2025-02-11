@@ -17,8 +17,6 @@ public class EstadioService {
     private EstadioDao repository;
 
     public EstadioService(EstadioDao repository) {
-
-        super();
         this.repository = repository;
     }
 
@@ -56,7 +54,6 @@ public class EstadioService {
     @Transactional
     public void save(Estadio estadio) {
         try {
-        
             LOGGER.info("Criando o Estadio (service): {}", estadio);
             this.repository.save(estadio);  // Salva o estadio uma vez
             LOGGER.info("Estadio criado com sucesso (service): {}", estadio);
